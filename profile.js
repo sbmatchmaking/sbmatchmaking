@@ -14,6 +14,11 @@ function updateElo(winner, loser) {
 
 // Initialize on load
 window.onload = function () {
+    const uid = localStorage.getItem("user-uid");
+    if (uid == null) {
+        window.location.href = "index.html";
+    }
+
     pfp.src = localStorage.getItem("profile-pic");
 
     fetch("http://127.0.0.1:8000/api/v1.0.0/json/g/userelo", {
