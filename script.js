@@ -81,7 +81,7 @@ window.onload = function () {
         pfp.style.visibility = "hidden";
 
         google.accounts.id.initialize({
-            client_id: "43188073112-ri4fqmrq0rourjt7cjdkhtp0fqfslcm7.apps.googleusercontent.com",
+            client_id: "662378591934-jvon7etbdg6n57ssiqsdrvuerck8e64h.apps.googleusercontent.com",
             callback: handleCredentialResponse
         });
         google.accounts.id.renderButton(document.getElementById("buttonDiv"), {theme: "outline", size: "large"}  // customization attributes
