@@ -17,6 +17,11 @@ searchInput.addEventListener('input', () => {
 });
 
 window.onload = function () {
+    const uid = localStorage.getItem("user-uid");
+    if (uid == null) {
+        window.location.href = "index.html";
+    }
+
     userPicture.src = localStorage.getItem("profile-pic");
 
     fetch("http://127.0.0.1:8000/api/v1.0.0/json/g/leaderboard")
