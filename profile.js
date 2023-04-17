@@ -1,0 +1,30 @@
+const pfp = document.getElementById("profile-pic");
+const userPicture = document.getElementById("pfp");
+const name = document.getElementById("name")
+const userInfo = document.getElementById("user-data")
+const uuid = localStorage.getItem("user-uid");
+
+function updateElo(winner, loser) {
+    fetch("http://127.0.0.1:8000/api/v1.0.0/json/p/upd", {
+        method: 'POST', headers: {
+            'Content-Type': 'application/json'
+        }, body: JSON.stringify({"winner-id": winner, "loser-id": loser})
+    })
+}
+
+// Initialize on load
+window.onload = function () {
+    pfp.src = localStorage.getItem("profile-pic");
+
+    fetch("http://127.0.0.1:8000/api/v1.0.0/json/g/userelo", {
+        method: 'POST', headers: {
+            'Content-Type': 'application/json'
+        }, body: JSON.stringify({"uuid": uuid})
+    })
+        .then(response => response.json())
+        .then(data => {
+            userPicture.src = data[0].fields.pfp_src;
+            name.textContent = data[0].fields.fname + " " + data[0].fields.lname;
+            userInfo.textContent = "Elo: " + data[0].fields.elo_rating;
+        });
+}

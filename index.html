@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Skill Based Matchmaking</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+<header>
+    <nav>
+        <ul>
+            <a class="home-icon-button" href="index.html">
+                <div class="logo">
+                    <img alt="Logo" src="logo.png">
+                </div>
+            </a>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+    <p id="login-notif">You must sign in to use this app. Make sure to use your school email. </p>
+</div>
+
+<div class="sign-in-error-container">
+    <p id="error-mssg"></p>
+</div>
+
+<div class="image-container">
+    <img alt="User Img" id="user-pfp" src="">
+</div>
+
+<div class="arrows">
+    <p id = "left-arrow"></p>
+    <p id = "right-arrow"></p>
+</div>
+
+<script async defer src="https://accounts.google.com/gsi/client"></script>
+<script src="script.js"></script>
+<div id="buttonDiv"></div>
+</body>
+
+</html>
