@@ -56,6 +56,11 @@ function updateElo(winner, loser) {
 
 // Initialize on load
 window.onload = function () {
+    const uid = localStorage.getItem("user-uid");
+    if (uid == null) {
+        window.location.href = "index.html";
+    }
+
     updateImg('left');
     updateImg('right');
 
