@@ -1,6 +1,15 @@
+const fs = require('fs')
+
 const leaderboard = document.getElementById('leaderboard');
 const searchInput = document.getElementById('search-input');
 const userPicture = document.getElementById("profile-pic");
+
+let baseURL;
+fs.readFile('base_url.txt', (err, data) => {
+    if (err) throw err;
+ 
+    baseURL = data.toString();
+})
 
 // Add a listener to the search input
 searchInput.addEventListener('input', () => {
@@ -24,7 +33,7 @@ window.onload = function () {
 
     userPicture.src = localStorage.getItem("profile-pic");
 
-    fetch("http://ec2-54-183-137-187.us-west-1.compute.amazonaws.com:8000/api/v1.0.0/json/g/leaderboard")
+    fetch(`${baseURL}api/v1.0.0/json/g/leaderboard`)
         .then(response => response.json())
         .then(data => {
             for (let i = 0; i < data.length; i++) {

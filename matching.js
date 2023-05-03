@@ -1,3 +1,5 @@
+const fs = require('fs')
+
 // Get the left and right images and their text elements
 const leftImage = document.getElementById("left-image");
 const leftText = document.getElementById("left-text");
@@ -7,6 +9,13 @@ const userPicture = document.getElementById("profile-pic");
 const uuid = localStorage.getItem("user-uid");
 
 const replaceBothChance = 0.2
+
+let baseURL;
+fs.readFile('base_url.txt', (err, data) => {
+    if (err) throw err;
+ 
+    baseURL = data.toString();
+})
 
 let queue = [];
 let canClick = true;
@@ -26,7 +35,7 @@ function updateImg(side) {
             rightText.uid = student.pk;
         }
     } else {
-        fetch("http://ec2-54-183-137-187.us-west-1.compute.amazonaws.com:8000/api/v1.0.0/json/skillbasedmatchmake", {
+        fetch(`${baseURL}api/v1.0.0/json/skillbasedmatchmake`, {
             method: 'POST', headers: {
                 'Content-Type': 'application/json'
             }, body: JSON.stringify({"uuid": uuid})
@@ -47,7 +56,7 @@ function updateImg(side) {
 }
 
 function updateElo(winner, loser) {
-    fetch("http://ec2-54-183-137-187.us-west-1.compute.amazonaws.com:8000/api/v1.0.0/json/p/upd", {
+    fetch(`${baseURL}api/v1.0.0/json/p/upd`, {
         method: 'POST', headers: {
             'Content-Type': 'application/json'
         }, body: JSON.stringify({"winner-id": winner, "loser-id": loser})
