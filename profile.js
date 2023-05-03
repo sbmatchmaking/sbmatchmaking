@@ -5,7 +5,7 @@ const userInfo = document.getElementById("user-data")
 const uuid = localStorage.getItem("user-uid");
 
 function updateElo(winner, loser) {
-    fetch("http://127.0.0.1:8000/api/v1.0.0/json/p/upd", {
+    fetch("http://ec2-54-183-137-187.us-west-1.compute.amazonaws.com:8000/api/v1.0.0/json/p/upd", {
         method: 'POST', headers: {
             'Content-Type': 'application/json'
         }, body: JSON.stringify({"winner-id": winner, "loser-id": loser})
