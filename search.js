@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 
 const leaderboard = document.getElementById('leaderboard');
 const searchInput = document.getElementById('search-input');

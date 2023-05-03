@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 
 const errorMssg = document.getElementById("error-mssg");
 const leftArrow = document.getElementById("left-arrow");

@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 
 const pfp = document.getElementById("profile-pic");
 const userPicture = document.getElementById("pfp");

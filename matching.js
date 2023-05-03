@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 
 // Get the left and right images and their text elements
 const leftImage = document.getElementById("left-image");
