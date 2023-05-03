@@ -6,19 +6,9 @@ const pfp = document.getElementById("user-pfp")
 let options;
 let cur;
 
-let baseURL;
-
-const reader = new FileReader();
-
-reader.onload = (event) => {
-  baseURL = event.target.result;
-};
-
-reader.readAsText(file);
-
 function setUid(fname, lname) {
     console.log("ran setUID")
-    fetch(`${baseURL}api/v1.0.0/json/p/name_to_uuid`, {
+    fetch("https://sbmatchmaking-didactic-space-waffle-7gp5g94pr6rc6p-8000.preview.app.github.dev/api/v1.0.0/json/p/name_to_uuid", {
         method: 'POST', headers: {
             'Content-Type': 'application/json'
         }, body: JSON.stringify({fname: fname, lname: lname})

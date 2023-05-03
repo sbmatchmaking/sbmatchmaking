@@ -2,16 +2,6 @@ const leaderboard = document.getElementById('leaderboard');
 const searchInput = document.getElementById('search-input');
 const userPicture = document.getElementById("profile-pic");
 
-let baseURL;
-
-const reader = new FileReader();
-
-reader.onload = (event) => {
-  baseURL = event.target.result;
-};
-
-reader.readAsText(file);
-
 // Add a listener to the search input
 searchInput.addEventListener('input', () => {
     const query = searchInput.value.toLowerCase().trim();
@@ -34,7 +24,7 @@ window.onload = function () {
 
     userPicture.src = localStorage.getItem("profile-pic");
 
-    fetch(`${baseURL}api/v1.0.0/json/g/leaderboard`)
+    fetch("https://sbmatchmaking-didactic-space-waffle-7gp5g94pr6rc6p-8000.preview.app.github.dev/api/v1.0.0/json/g/leaderboard")
         .then(response => response.json())
         .then(data => {
             for (let i = 0; i < data.length; i++) {
