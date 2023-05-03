@@ -5,10 +5,10 @@ const searchInput = document.getElementById('search-input');
 const userPicture = document.getElementById("profile-pic");
 
 let baseURL;
-fs.readFile('base_url.txt', (err, data) => {
+fs.readFile('base_url.txt', 'utf-8', (err, data) => {
     if (err) throw err;
  
-    baseURL = data.toString();
+    baseURL = data;
 })
 
 // Add a listener to the search input

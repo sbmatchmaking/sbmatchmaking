@@ -9,10 +9,10 @@ let options;
 let cur;
 
 let baseURL;
-fs.readFile('base_url.txt', (err, data) => {
+fs.readFile('base_url.txt', 'utf-8', (err, data) => {
     if (err) throw err;
  
-    baseURL = data.toString();
+    baseURL = data;
 })
 
 function setUid(fname, lname) {

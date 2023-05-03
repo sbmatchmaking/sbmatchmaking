@@ -7,10 +7,10 @@ const userInfo = document.getElementById("user-data")
 const uuid = localStorage.getItem("user-uid");
 
 let baseURL;
-fs.readFile('base_url.txt', (err, data) => {
+fs.readFile('base_url.txt', 'utf-8', (err, data) => {
     if (err) throw err;
  
-    baseURL = data.toString();
+    baseURL = data;
 })
 
 function updateElo(winner, loser) {
