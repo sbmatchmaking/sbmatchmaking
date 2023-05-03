@@ -1,15 +1,16 @@
-const fs = require('fs');
-
 const leaderboard = document.getElementById('leaderboard');
 const searchInput = document.getElementById('search-input');
 const userPicture = document.getElementById("profile-pic");
 
 let baseURL;
-fs.readFile('base_url.txt', 'utf-8', (err, data) => {
-    if (err) throw err;
- 
-    baseURL = data;
-})
+
+const reader = new FileReader();
+
+reader.onload = (event) => {
+  baseURL = event.target.result;
+};
+
+reader.readAsText(file);
 
 // Add a listener to the search input
 searchInput.addEventListener('input', () => {

@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 const pfp = document.getElementById("profile-pic");
 const userPicture = document.getElementById("pfp");
 const name = document.getElementById("name")
@@ -7,11 +5,14 @@ const userInfo = document.getElementById("user-data")
 const uuid = localStorage.getItem("user-uid");
 
 let baseURL;
-fs.readFile('base_url.txt', 'utf-8', (err, data) => {
-    if (err) throw err;
- 
-    baseURL = data;
-})
+
+const reader = new FileReader();
+
+reader.onload = (event) => {
+  baseURL = event.target.result;
+};
+
+reader.readAsText(file);
 
 function updateElo(winner, loser) {
     fetch(`${baseURL}api/v1.0.0/json/p/upd`, {

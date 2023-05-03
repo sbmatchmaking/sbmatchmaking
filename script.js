@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 const errorMssg = document.getElementById("error-mssg");
 const leftArrow = document.getElementById("left-arrow");
 const rightArrow = document.getElementById("right-arrow");
@@ -9,11 +7,14 @@ let options;
 let cur;
 
 let baseURL;
-fs.readFile('base_url.txt', 'utf-8', (err, data) => {
-    if (err) throw err;
- 
-    baseURL = data;
-})
+
+const reader = new FileReader();
+
+reader.onload = (event) => {
+  baseURL = event.target.result;
+};
+
+reader.readAsText(file);
 
 function setUid(fname, lname) {
     console.log("ran setUID")

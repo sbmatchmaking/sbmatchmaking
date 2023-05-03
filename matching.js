@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 // Get the left and right images and their text elements
 const leftImage = document.getElementById("left-image");
 const leftText = document.getElementById("left-text");
@@ -11,11 +9,14 @@ const uuid = localStorage.getItem("user-uid");
 const replaceBothChance = 0.2
 
 let baseURL;
-fs.readFile('base_url.txt', 'utf-8', (err, data) => {
-    if (err) throw err;
- 
-    baseURL = data;
-})
+
+const reader = new FileReader();
+
+reader.onload = (event) => {
+  baseURL = event.target.result;
+};
+
+reader.readAsText(file);
 
 let queue = [];
 let canClick = true;
