@@ -8,7 +8,7 @@ let cur;
 
 function setUid(fname, lname) {
     console.log("ran setUID")
-    fetch("http://ec2-54-183-137-187.us-west-1.compute.amazonaws.com:8000/api/v1.0.0/json/p/name_to_uuid", {
+    fetch("https://sbmmbk.lol/api/v1.0.0/json/p/name_to_uuid", {
         method: 'POST', headers: {
             'Content-Type': 'application/json'
         }, body: JSON.stringify({fname: fname, lname: lname})
