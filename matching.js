@@ -6,7 +6,7 @@ const rightText = document.getElementById("right-text");
 const userPicture = document.getElementById("profile-pic");
 const uuid = localStorage.getItem("user-uid");
 
-const replaceBothChance = 0.2
+const replaceBothChance = 1.0
 
 let queue = [];
 let canClick = true;

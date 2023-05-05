@@ -132,3 +132,11 @@ nav a {
     /*height: auto;*/
     overflow: hidden;
 }
+
+.instruct {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+    color: greenyellow;
+    font-weight: bold;
+}
