@@ -6,7 +6,8 @@ const rightText = document.getElementById("right-text");
 const userPicture = document.getElementById("profile-pic");
 const uuid = localStorage.getItem("user-uid");
 
-const replaceBothChance = 1.0
+const replaceWinnerChance = 0.0
+const replaceLoserChance = 1.0
 
 let queue = [];
 let canClick = true;
@@ -82,8 +83,8 @@ leftImage.addEventListener("click", () => {
         setTimeout(() => {
             leftImage.classList.remove("clicked");
             updateElo(leftText.uid, rightText.uid)
-            updateImg('left');
-            if (Math.random() < replaceBothChance) updateImg('right');
+            if (Math.random() < replaceWinnerChance) updateImg('left');
+            if (Math.random() < replaceLoserChance) updateImg('right');
         }, 500);
     }
 });
@@ -102,8 +103,8 @@ rightImage.addEventListener("click", () => {
         setTimeout(() => {
             rightImage.classList.remove("clicked");
             updateElo(rightText.uid, leftText.uid)
-            updateImg('right');
-            if (Math.random() < replaceBothChance) updateImg('left');
+            if (Math.random() < replaceWinnerChance) updateImg('right');
+            if (Math.random() < replaceLoserChance) updateImg('left');
         }, 500);
     }
 });

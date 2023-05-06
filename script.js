@@ -7,7 +7,6 @@ let options;
 let cur;
 
 function setUid(fname, lname) {
-    console.log("ran setUID")
     fetch("https://sbmmbk.lol/api/v1.0.0/json/p/name_to_uuid", {
         method: 'POST', headers: {
             'Content-Type': 'application/json'
@@ -60,9 +59,9 @@ function handleCredentialResponse(response) {
     // console.log("Email: " + responsePayload.email);
 
     if (responsePayload.email.endsWith("@student.fuhsd.org")) {
-        name = responsePayload.name
-        let fname = name.substring(0, name.indexOf(" "));
-        let lname = name.substring(name.lastIndexOf(" ") + 1);
+        let userName = responsePayload.name
+        let fname = userName.substring(0, userName.indexOf(" "));
+        let lname = userName.substring(userName.lastIndexOf(" ") + 1);
         localStorage.setItem("profile-pic", responsePayload.picture);
         setUid(fname, lname);
         // window.location.href = "matching.html"
